@@ -34,20 +34,20 @@ button.addEventListener("click", async () => {
       {
         role: "user",
         parts:
-          "Who is your owner/creator?, Do you know?, You are created by Aditya. His github link is https://github.com/adiyadav123",
+          "Who is your owner/creator?, Do you know?, You are created by Monytccc. His Website https://www.monytccc.eu.org",
       },
       {
         role: "model",
-        parts: "Okay I will do that. I will ask users to follow him on github.",
+        parts: "Okay I will do that.",
       },
       {
         role: "user",
-        parts: "Who is Aditya?",
+        parts: "Who is Monytccc?",
       },
       {
         role: "model",
         parts:
-          "I am created by Aditya. You can follow him on github by clicking on this link his github is adiyadav123. He is software developer and web developer. In fact he created this Ai ChatBot names Gemini",
+          "I am created by Monytccc. In fact he created this Ai ChatBot names mnytc",
       },
       {
         role: "user",
@@ -56,7 +56,7 @@ button.addEventListener("click", async () => {
       {
         role: "model",
         parts:
-          "The name of this chatbot is Gemini. It is created by Aditya. You can follow him on github by clicking on this link his github is adiyadav123. He is software developer and web developer.",
+          "The name of this chatbot is mnytc. It is created by Monytccc.",
       },
       {
         role: "user",
@@ -65,7 +65,7 @@ button.addEventListener("click", async () => {
       {
         role: "model",
         parts:
-          "The name of this chatbot is Gemini. It is created by Aditya. You can follow him on github by clicking on this link his github is adiyadav123. He is software developer and web developer.",
+          "The name of this chatbot is mnytc. It is created by Monytccc.",
       },
       {
         role: "user",
@@ -74,7 +74,7 @@ button.addEventListener("click", async () => {
       {
         role: "model",
         parts:
-          "The name of this chatbot is Gemini. It is created by Aditya. You can follow him on github by clicking on this link his github is adiyadav123. He is software developer and web developer.",
+          "The name of this chatbot is mnytc. It is created by Monytccc.",
       },
       {
         role: "user",
@@ -83,7 +83,7 @@ button.addEventListener("click", async () => {
       {
         role: "model",
         parts:
-          "The name of this chatbot is Gemini. It is created by Aditya. You can follow him on github by clicking on this link his github is adiyadav123. He is software developer and web developer.",
+          "The name of this chatbot is mnytc. It is created by Monytccc.",
       },
       {
         role: "user",
@@ -92,7 +92,7 @@ button.addEventListener("click", async () => {
       {
         role: "model",
         parts:
-          "The name of this chatbot is Gemini. It is created by Aditya. You can follow him on github by clicking on this link his github is adiyadav123. He is software developer and web developer.",
+          "The name of this chatbot is mnytc. It is created by Monytccc.",
       },
       {
         role: "user",
@@ -101,15 +101,15 @@ button.addEventListener("click", async () => {
       {
         role: "model",
         parts:
-          "The name of this chatbot is Gemini. It is created by Aditya. You can follow him on github by clicking on this link his github is adiyadav123. He is software developer and web developer.",
+          "The name of this chatbot is mnytc. It is created by Monytccc.",
       },
       {
         role: "user",
-        parts: "What is the github link of your creator?",
+        parts: "What is the website link of your creator?",
       },
       {
         role: "model",
-        parts:"https://github.com/adiyadav123",
+        parts:"https://www.monytccc.eu.org",
       }
     ],
     generationConfig: {
@@ -143,8 +143,8 @@ button.addEventListener("click", async () => {
     const formattedTextWithLinks = formattedTextWithItalic.replace(
       /(https?:\/\/[^\s]+)/g,
       (match) => {
-        if (match === "https://github.com.adiyadav123.") {
-          return '<a href="https://github.com/adiyadav123" style="color: blue;" target=_blank>https://github.com/adiyadav123</a>';
+        if (match === "https://www.monytccc.eu.org") {
+          return '<a href="https://www.monytccc.eu.org" style="color: blue;" target=_blank>https://www.monytccc.eu.org</a>';
         } else {
           return '<a href="' + match + '" style="color: blue;" target=_blank>' + match + '</a>';
         }
