@@ -23,8 +23,8 @@ body {
     justify-content: center;
     background-color: #111927;
     background-image: 
-    radial-gradient(at 47% 33%, hsl(162.00, 60%, 30%) 0, transparent 59%), 
-radial-gradient(at 82% 65%, hsl(218.00, 25%, 8%) 0, transparent 55%);
+    radial-gradient(at 47% 33%, hsl(162.00, 100%, 70%) 0, transparent 59%), 
+radial-gradient(at 82% 65%, hsl(218.00, 100%, 80%) 0, transparent 55%);
 
     background-repeat: no-repeat;
 }
