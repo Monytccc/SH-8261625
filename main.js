@@ -7,6 +7,22 @@ const loader = document.querySelector(".loading");
 
 const genAi = new GoogleGenerativeAI(import.meta.env.VITE_API_KEY);
 
+const formatText = (text) => {
+  // Mengganti karakter "*" dengan titik dan spasi
+  text = text.replace(/\*/g, ". ");
+
+  // Memisahkan teks menjadi kalimat-kalimat
+  let sentences = text.split(". ");
+
+  // Menghapus kalimat kosong
+  sentences = sentences.filter((sentence) => sentence.trim() !== "");
+
+  // Menambahkan spasi setelah titik
+  text = sentences.join(". ") + ".";
+
+  return text;
+};
+
 button.addEventListener("click", async () => {
   // ... existing code ...
 });
@@ -133,7 +149,7 @@ button.addEventListener("click", async () => {
      
   }
   
-    const formattedText = text.replace(/\*\*(.*?)\*\*/g, "<b>$1</b>");
+    const formattedText = formatText(text);
     const formattedTextWithItalic = formattedText.replace(
       /\*(.*?)\*/g,
       "<i>$1</i>"
