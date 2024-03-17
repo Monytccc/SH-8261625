@@ -127,7 +127,7 @@ button.addEventListener("click", async () => {
     input.value = "";
     message_area.scrollTop = message_area.scrollHeight - message_area.clientHeight; // Navigate to the top of currently added innerHTML
     return message_area.innerHTML += `<div class="message ai-message">
-  <div class="img"><img src="/logo.png" alt=""></div>
+  <div class="img"><img src="logo.png" alt=""></div>
   <div class="text">Maaf Tidak Mengerti atau Coba yang lain</div>
 </div>`;
      
@@ -152,7 +152,7 @@ button.addEventListener("click", async () => {
     );
     loader.style.visibility = "hidden";
     message_area.innerHTML += `<div class="message ai-message">
-    <div class="img"><img src="/logo.png" alt=""></div>
+    <div class="img"><img src="logo.png" alt=""></div>
     <div class="text">${formattedTextWithLinks}</div>
   </div>`;
     message_area.scrollTop = message_area.scrollHeight - message_area.clientHeight; // Navigate to the top of currently added innerHTML
