@@ -20,6 +20,9 @@ const formatText = (text) => {
   // Menambahkan spasi setelah titik
   text = sentences.join(". ") + ".";
 
+  text = text.replace(/\.\s/g, ".\u00A0");
+
+
   return text;
 };
 
