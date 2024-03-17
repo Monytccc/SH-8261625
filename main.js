@@ -113,7 +113,7 @@ button.addEventListener("click", async () => {
       }
     ],
     generationConfig: {
-      maxOutputTokens: 1000,
+      maxOutputTokens: 2048,
     },
   });
   try {
