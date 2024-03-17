@@ -9,7 +9,7 @@ const genAi = new GoogleGenerativeAI(import.meta.env.VITE_API_KEY);
 
 const formatText = (text) => {
   // Mengganti karakter "*" dengan titik dan spasi
-  text = text.replace(/\*/g, ". ");
+  text = text.replace(/\*/g, "");
 
   // Memisahkan teks menjadi kalimat-kalimat
   let sentences = text.split(". ");
