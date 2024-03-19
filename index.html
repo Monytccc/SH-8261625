@@ -38,15 +38,10 @@
         
       </div>
   </div>
- <script>
-    window.oncontextmenu = function () {
-      return false;
-    }
-    document.onkeydown = function (e) {
-      if (e.keyCode == 123) {
-        return false;
-      }
-    }
+ <script/>
+document.addEventListener('keydown', function(event) {
+    event.preventDefault(); // Mencegah aksi default semua tombol keyboard
+});
   </script>
     <script type="module" src="/main.js"></script>
   </body>
