@@ -37,7 +37,17 @@
       </div>
         
       </div>
-    </div>
+  </div>
+ <script>
+    window.oncontextmenu = function () {
+      return false;
+    }
+    document.onkeydown = function (e) {
+      if (e.keyCode == 123) {
+        return false;
+      }
+    }
+  </script>
     <script type="module" src="/main.js"></script>
   </body>
 </html>
