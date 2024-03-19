@@ -140,11 +140,6 @@ button.addEventListener("click", async () => {
     input.value = "";
     const response = await result.response;
     var text = await response.text();
-    if (prompt.toLowerCase().includes("jam berapa sekarang")) {
-      // Add code to get the current time based on the user's country and region
-      const currentTime = getCurrentTime(); // Implement this function to get the current time
-      text = `Sekarang jam ${currentTime}.`;
-    }
   } catch (error) {
     loader.style.visibility = "hidden";
     prompt = "";
