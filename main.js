@@ -26,6 +26,17 @@ const formatText = (text) => {
   return text;
 };
 
+const fetchHistory = async () => {
+  try {
+    const response = await fetch("history.txt");
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    console.error("Error fetching history:", error);
+    return [];
+  }
+};
+
 button.addEventListener("click", async () => {
   // ... existing code ...
 });
@@ -49,88 +60,7 @@ button.addEventListener("click", async () => {
 
   const model = genAi.getGenerativeModel({ model: "gemini-pro" });
   const chat = model.startChat({
-    history: [
-      {
-        role: "user",
-        parts:
-          "Who is your owner/creator?, Do you know?, You are created by Monytccc. His Website https://www.monytccc.eu.org",
-      },
-      {
-        role: "model",
-        parts: "Okay I will do that.",
-      },
-      {
-        role: "user",
-        parts: "Who is Monytccc?",
-      },
-      {
-        role: "model",
-        parts:
-          "I am created by Monytccc. In fact he created this Ai ChatBot names mnytc",
-      },
-      {
-        role: "user",
-        parts: "What is the name of this chatbot?",
-      },
-      {
-        role: "model",
-        parts:
-          "The name of this chatbot is mnytc. It is created by Monytccc.",
-      },
-      {
-        role: "user",
-        parts: "What is the name of this chatbot?",
-      },
-      {
-        role: "model",
-        parts:
-          "The name of this chatbot is mnytc. It is created by Monytccc.",
-      },
-      {
-        role: "user",
-        parts: "What is the name of this chatbot?",
-      },
-      {
-        role: "model",
-        parts:
-          "The name of this chatbot is mnytc. It is created by Monytccc.",
-      },
-      {
-        role: "user",
-        parts: "What is the name of this chatbot?",
-      },
-      {
-        role: "model",
-        parts:
-          "The name of this chatbot is mnytc. It is created by Monytccc.",
-      },
-      {
-        role: "user",
-        parts: "What is the name of this chatbot?",
-      },
-      {
-        role: "model",
-        parts:
-          "The name of this chatbot is mnytc. It is created by Monytccc.",
-      },
-      {
-        role: "user",
-        parts: "What is the name of this chatbot?",
-      },
-      {
-        role: "model",
-        parts:
-          "The name of this chatbot is mnytc. It is created by Monytccc.",
-      },
-      {
-        role: "user",
-        parts: "What is the website link of your creator?",
-      },
-      {
-        role: "model",
-        parts:"https://www.monytccc.eu.org",
-      }
-    ],
+    history: history,
     generationConfig: {
       maxOutputTokens: 2048,
     },
