@@ -53,6 +53,24 @@ button.addEventListener("click", async () => {
       {
         role: "user",
         parts:
+          "Jam berapa",
+      },
+      {
+        role: "model",
+        parts: "saya hanya sebuah program",
+      },
+      {
+        role: "user",
+        parts:
+          "Lokasi Sekolah 64",
+      },
+      {
+        role: "model",
+        parts: "Jl. Raya Cipayung RT/RW. 11/02,  Kelurahan Cipayung, Kecamatan Cipayung 13840",
+      },
+      {
+        role: "user",
+        parts:
           "Who is your owner/creator?, Do you know?, You are created by Monytccc. His Website https://www.monytccc.eu.org",
       },
       {
