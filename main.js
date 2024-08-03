@@ -26,6 +26,20 @@ const formatText = (text) => {
   return text;
 };
 
+const loadHistory = async () => {
+  try {
+    const response = await fetch('data.txt');
+    if (!response.ok) {
+      throw new Error('Network response was not ok ' + response.statusText);
+    }
+    const history = await response.json();
+    return history;
+  } catch (error) {
+    console.error('There has been a problem with your fetch operation:', error);
+    return [];
+  }
+};
+
 button.addEventListener("click", async () => {
   // ... existing code ...
 });
@@ -47,111 +61,10 @@ button.addEventListener("click", async () => {
   loader.style.visibility = "visible";
   message_area.scrollTop = message_area.scrollHeight; // Navigate to the bottom of message_area
 
+  const history = await loadHistory();
   const model = genAi.getGenerativeModel({ model: "gemini-pro" });
   const chat = model.startChat({
-    history: [
-      {
-        role: "user",
-        parts:
-          "Jam berapa",
-      },
-      {
-        role: "model",
-        parts: "saya hanya sebuah program",
-      },
-      {
-        role: "user",
-        parts:
-          "Lokasi Sekolah 64",
-      },
-      {
-        role: "model",
-        parts: "Jl. Raya Cipayung RT/RW. 11/02,  Kelurahan Cipayung, Kecamatan Cipayung 13840",
-      },
-      {
-        role: "user",
-        parts:
-          "Who is your owner/creator?, Do you know?, You are created by Monytccc. His Website https://www.monytccc.eu.org",
-      },
-      {
-        role: "model",
-        parts: "Okay I will do that.",
-      },
-      {
-        role: "user",
-        parts: "Who is Monytccc?",
-      },
-      {
-        role: "model",
-        parts:
-          "I am created by Monytccc. In fact he created this Ai ChatBot names mnytc",
-      },
-      {
-        role: "user",
-        parts: "What is the name of this chatbot?",
-      },
-      {
-        role: "model",
-        parts:
-          "The name of this chatbot is mnytc. It is created by Monytccc.",
-      },
-      {
-        role: "user",
-        parts: "What is the name of this chatbot?",
-      },
-      {
-        role: "model",
-        parts:
-          "The name of this chatbot is mnytc. It is created by Monytccc.",
-      },
-      {
-        role: "user",
-        parts: "What is the name of this chatbot?",
-      },
-      {
-        role: "model",
-        parts:
-          "The name of this chatbot is mnytc. It is created by Monytccc.",
-      },
-      {
-        role: "user",
-        parts: "What is the name of this chatbot?",
-      },
-      {
-        role: "model",
-        parts:
-          "The name of this chatbot is mnytc. It is created by Monytccc.",
-      },
-      {
-        role: "user",
-        parts: "What is the name of this chatbot?",
-      },
-      {
-        role: "model",
-        parts:
-          "The name of this chatbot is mnytc. It is created by Monytccc.",
-      },
-      {
-        role: "user",
-        parts: "What is the name of this chatbot?",
-      },
-      {
-        role: "model",
-        parts:
-          "The name of this chatbot is mnytc. It is created by Monytccc.",
-      },
-      {
-        role: "user",
-        parts: "What is the website link of your creator?",
-      },
-      {
-        role: "model",
-        parts:"https://www.monytccc.eu.org",
-      }
-    ],
-    generationConfig: {
-      maxOutputTokens: 2048,
-    },
+    history: history,
   });
   try {
     const result = await chat.sendMessageStream(prompt);
