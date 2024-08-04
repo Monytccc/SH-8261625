@@ -26,15 +26,10 @@ const formatText = (text) => {
   return text;
 };
 
-const getHistory = async () => {
-  try {
-    const response = await fetch('/data.json');
-    const data = await response.json();
-    return data;
-  } catch (error) {
-    console.error('Error loading history:', error);
-    return [];
-  }
+const fetchHistory = async () => {
+  const response = await fetch('/data.json');
+  const data = await response.json();
+  return data;
 };
 
 button.addEventListener("click", async () => {
@@ -58,10 +53,11 @@ button.addEventListener("click", async () => {
   loader.style.visibility = "visible";
   message_area.scrollTop = message_area.scrollHeight; // Navigate to the bottom of message_area
 
-  const history = await getHistory();
+  const history = await fetchHistory();
+
   const model = genAi.getGenerativeModel({ model: "gemini-pro" });
   const chat = model.startChat({
-    history ,
+    history: history,
     generationConfig: {
       maxOutputTokens: 2048,
     },
