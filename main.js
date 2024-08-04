@@ -4,22 +4,30 @@ const input = document.querySelector(".input");
 const output = document.querySelector(".ai-message");
 const message_area = document.querySelector(".message_area");
 const loader = document.querySelector(".loading");
-const chatHistory = require('./data.json').history;
-
 
 const genAi = new GoogleGenerativeAI(import.meta.env.VITE_API_KEY);
 
 const formatText = (text) => {
+  // Mengganti karakter "*" dengan titik dan spasi
   text = text.replace(/\*/g, "");
+
+  // Memisahkan teks menjadi kalimat-kalimat
   let sentences = text.split(". ");
+
+  // Menghapus kalimat kosong
   sentences = sentences.filter((sentence) => sentence.trim() !== "");
+
+  // Menambahkan spasi setelah titik
   text = sentences.join(". ") + ".";
+
   text = text.replace(/\.\s/g, ".\u00A0");
+
 
   return text;
 };
 
 button.addEventListener("click", async () => {
+  // ... existing code ...
 });
 
 input.addEventListener("keydown", (event) => {
@@ -39,10 +47,13 @@ button.addEventListener("click", async () => {
   loader.style.visibility = "visible";
   message_area.scrollTop = message_area.scrollHeight; // Navigate to the bottom of message_area
 
-  const model = genAi.getGenerativeModel({ model: "gemini-pro" });
   const chatHistory = require('data.json').history;
+  const model = genAi.getGenerativeModel({ model: "gemini-pro" });
   const chat = model.startChat({
     history: chatHistory,
+    generationConfig: {
+      maxOutputTokens: 2048,
+    },
   });
   try {
     const result = await chat.sendMessageStream(prompt);
