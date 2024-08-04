@@ -4,7 +4,7 @@ const input = document.querySelector(".input");
 const output = document.querySelector(".ai-message");
 const message_area = document.querySelector(".message_area");
 const loader = document.querySelector(".loading");
-const chatHistory = require('data.json').history;
+const chatHistory = require('./data.json').history;
 
 
 const genAi = new GoogleGenerativeAI(import.meta.env.VITE_API_KEY);
@@ -40,6 +40,7 @@ button.addEventListener("click", async () => {
   message_area.scrollTop = message_area.scrollHeight; // Navigate to the bottom of message_area
 
   const model = genAi.getGenerativeModel({ model: "gemini-pro" });
+  const chatHistory = require('data.json').history;
   const chat = model.startChat({
     history: chatHistory,
   });
