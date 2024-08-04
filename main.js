@@ -26,16 +26,13 @@ const formatText = (text) => {
   return text;
 };
 
-const fetchChatHistory = async () => {
+const getHistory = async () => {
   try {
-    const response = await fetch("https://files.mnytc.com/ai-data.json");
-    if (!response.ok) {
-      throw new Error("Network response was not ok");
-    }
+    const response = await fetch('/data.json');
     const data = await response.json();
-    return data.history || [];
+    return data;
   } catch (error) {
-    console.error("Failed to fetch chat history:", error);
+    console.error('Error loading history:', error);
     return [];
   }
 };
@@ -61,10 +58,10 @@ button.addEventListener("click", async () => {
   loader.style.visibility = "visible";
   message_area.scrollTop = message_area.scrollHeight; // Navigate to the bottom of message_area
 
-  const chatHistory = await fetchChatHistory();
+  const history = await getHistory();
   const model = genAi.getGenerativeModel({ model: "gemini-pro" });
   const chat = model.startChat({
-    history: chatHistory,
+    history ,
     generationConfig: {
       maxOutputTokens: 2048,
     },
