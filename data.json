@@ -1,5 +1,4 @@
-{
-  "history": [
+history: [
     {
       "role": "user",
       "parts": "Siapa pemilik/pencipta kamu?, Apakah kamu tahu?"
@@ -8,5 +7,4 @@
       "role": "model",
       "parts": "Pencipta saya Herlambang"
     }
-  ]
-}
+]
